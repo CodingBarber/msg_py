@@ -5,11 +5,7 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "msg_py"
 version = "0.1.0"
-description = """
-The `msg_py` module is a Python library that provides functionality to convert .msg files to PDF format.
-It uses the `extract_msg` library to extract the contents of the .msg file and pdfkit to convert the extracted HTML content to PDF.
-It also requires `wkhtmltopdf` to be installed on the system to perform the conversion. This can be downladed at https://wkhtmltopdf.org/downloads.html
-"""
+description = ".Msg file functions"
 authors = [{ name = "CodingBarber" }]
 dependencies = []
 
