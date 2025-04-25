@@ -12,3 +12,6 @@ It also requires `wkhtmltopdf` to be installed on the system to perform the conv
 """
 authors = [{ name = "CodingBarber" }]
 dependencies = []
+
+[tool.setuptools]
+packages = ["msg_py"]
