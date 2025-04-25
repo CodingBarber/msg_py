@@ -1,5 +1,5 @@
 [build-system]
-requires = ["setuptools"]
+requires = ["setuptools","extract_msg","pdfkit"]
 build-backend = "setuptools.build_meta"
 
 [project]
