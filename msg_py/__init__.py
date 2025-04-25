@@ -6,8 +6,9 @@ It also requires `wkhtmltopdf` to be installed on the system to perform the conv
 """
 
 
-__versaion__ = '0.1.0'
+__versaion__ = '0.1.2'
 __author__ = "Cody Barber"
+__git_hub__ = "https://github.com/CodingBarber/msg_py"
 __exteral_libraries__ = ["extract_msg", "pdfkit", "re", "base64", "os"]
 
 
@@ -16,6 +17,7 @@ import re
 import base64
 import pdfkit
 import os
+from time import sleep
 
 WKHTMLTOPDF_PATH = r"C:\Program Files\wkhtmltopdf\bin\wkhtmltopdf.exe"
 
@@ -126,6 +128,12 @@ class Msg():
             f.write(msg_body.encode('utf-8'))
 
         config = pdfkit.configuration(wkhtmltopdf=WKHTMLTOPDF_PATH)
-        pdfkit.from_file(temp_file_path, output_pdf_path,configuration=config)
+        try: pdfkit.from_file(temp_file_path, output_pdf_path,configuration=config)
+        except: pass
         if not keep_html_file:
             os.remove(temp_file_path)
+
+        # Wait for the PDF file to be created
+        sleep(1)
+        if not os.path.exists(output_pdf_path):
+            raise Exception("The PDF file was not created")
